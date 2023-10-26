@@ -1,0 +1,31 @@
+
+//GET http://localhost:3000/accounts
+
+
+
+//GET  http://localhost:3000/accounts/3
+
+//@baseUrl = http://localhost:3000
+
+
+//GET {{baseUrl}}/accounts
+
+
+//GET {{baseUrl}}/accounts/3
+
+# POST {{baseUrl}}/accounts/
+# Content-Type: application/json
+
+# {
+# "id": "4",
+# "username": "davesmith",
+# "role": "admin"
+# }
+
+//PUT {{baseUrl}}/accounts/1
+//Content-Type: application/json
+
+//{
+//"role": "guest"
+//}
+
