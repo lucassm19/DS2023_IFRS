@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import api from '../axios/config';
 import "./Home.css";
-import blogFetch from '../axios/config';
 
 const Home = () => {
 
-  const [posts, setPosts] = useState([]);
+  const [books, setPosts] = useState([]);
 
   const getPosts = async () => {
     try {
-      const response = await blogFetch.get("");
+      const response = await api.get("");
 
       const data = response.data;
 
@@ -27,17 +27,17 @@ const Home = () => {
   return (
     <div>
       <h1>Livros da biblioteca</h1>
-      {posts.length === 0 ? <p>carregando....</p> : (
-        posts.map((post) => (
-          <div className="post" key={post.id}>
-            <h2>Nome: {post.title}</h2>
-            <p>Páginas: {post.pageCount}</p>
-            <Link to={'/more/${post.id}'}>Ler mais</Link>
+      {books.length === 0 ? <p>carregando....</p> : (
+        books.map((book) => (
+          <div className="book" key={book.id}>
+            <h2>Nome: {book.title}</h2>
+            <p>Páginas: {book.pageCount}</p>
+            <Link to={`/book/${book.id}`}>Ler mais</Link>
           </div>
         ))
-
       )}
     </div>
+    
   );
 }
 

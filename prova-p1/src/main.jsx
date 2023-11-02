@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 
-import Home from './routes/Home';
-import NewPost from './routes/NewPost';
-import Detail from './routes/Detail';
+import Home from "./routes/Home";
+import NewPost from "./routes/NewPost";
+import Detail from "./routes/Detail";
 
 const router = createBrowserRouter([
   {
@@ -20,14 +20,14 @@ const router = createBrowserRouter([
         element: <NewPost />,
       },
       {
-        path: "/${post.id}",
+        path: "/book/:id",
         element: <Detail />,
       },
     ],
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>
