@@ -1,23 +1,19 @@
-import React from 'react';
+//import React from 'react';
 import axios from 'axios';
+import "./App.css";
+
+import NavBar from './components/NavBar';
+
+import { Outlet } from 'react-router-dom';
+
 function App() {
-  axios({
-    method: 'get',
-    url: 'https://fakerestapi.azurewebsites.net/api/v1/Books'
-  })
-    .then(response => {
-      // manipular dados de resposta
-      response.data.map(livro => {
-        console.log(`${livro.title}`);
-        return null;
-      });
-    })
-    .catch(err => {
-      // manipular erros
-      console.log(err);
-    });
   return (
-    <p>Listagem de livros</p>
+    <div className='App'>
+      <NavBar/>
+      <div className="container">
+        <Outlet />
+      </div>
+    </div>
   );
 }
 export default App;
